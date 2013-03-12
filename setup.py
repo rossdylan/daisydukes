@@ -1,12 +1,11 @@
 from setuptools import setup, find_packages
-version = '0.0.1'
+version = '0.0.2'
 requires = []
 
 
 setup(name='daisydukes',
     version=version,
-    description="Set up a minimal, yet comfortable structure \
-        for a Python project",
+    description="Stylish transport for your python",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",

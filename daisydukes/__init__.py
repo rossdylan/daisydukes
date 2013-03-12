@@ -61,7 +61,7 @@ def Archive():
     elif args.xz:
         archive.ArchiveTar(proj_info, args.extrafiles, 'xz')
     else:
-        archive.ArchiveZip(util.trap_setup()[1], args.extrafiles)
+        parser.print_help()
 
 
 def Upload():
