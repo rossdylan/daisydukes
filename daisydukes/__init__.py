@@ -86,12 +86,13 @@ def Upload():
                         action='store_true',
                         help='Run the register command before uploading to pypi')
     args = parser.parse_args(sys.argv[2:])
+    proj_info = util.trap_setup()[1]
     if args.pypi:
         upload.PyPIUpload(reg=args.register)
     elif args.s3:
-        upload.S3Upload(args.s3, args.format)
+        upload.S3Upload(proj_info, args.s3, args.format)
     elif args.ftp:
-        upload.FTPUpload(args.ftp, args.format)
+        upload.FTPUpload(proj_info, args.ftp, args.format)
     else:
         parser.print_usage()
 
