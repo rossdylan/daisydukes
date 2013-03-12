@@ -1,6 +1,7 @@
 import util
 import sys
 import argparse
+import archive
 
 
 def DaisyDukesRunner():
@@ -44,6 +45,16 @@ def Archive():
                         action='store_true',
                         help='Archive this pythong project as a tar.xz file')
     args = parser.parse_args(sys.argv[1:])
+    if args.zip:
+        archive.ArchiveZip(util.trap_setup()[1])
+    elif args.gzip:
+        pass
+    elif args.bzip:
+        pass
+    elif args.lzma:
+        pass
+    elif args.xz:
+        pass
 
 
 def Upload():
