@@ -48,16 +48,17 @@ def Archive():
                         metavar='F', type=str, nargs='+',default=[],
                         help='A list of extra files to add to the archive')
     args = parser.parse_args(sys.argv[2:])
+    proj_info = util.trap_setup()[1]
     if args.zip:
-        archive.ArchiveZip(util.trap_setup()[1], args.extrafiles)
+        archive.ArchiveZip(prof_info, args.extrafiles)
     elif args.gzip:
-        pass
+        archive.ArchiveTar(proj_info, args.extrafiles, 'gz')
     elif args.bzip:
-        pass
+        archive.ArchiveTar(proj_info, args.extrafiles, 'bz2')
     elif args.lzma:
-        pass
+        archive.ArchiveTar(proj_info, args.extrafiles, 'lzma')
     elif args.xz:
-        pass
+        archive.ArchiveTar(proj_info, args.extrafiles, 'xz')
     else:
         archive.ArchiveZip(util.trap_setup()[1], args.extrafiles)
 

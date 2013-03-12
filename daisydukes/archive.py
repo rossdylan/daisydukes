@@ -27,3 +27,17 @@ def ArchiveZip(proj_info, extra_files):
     files_list.extend(extra_files)
     zip_command = "zip -r {} {} -x {} ".format(aname, " ".join(files_list), exclude)
     check_call(split(zip_command))
+
+
+def ArchiveTar(proj_info, extra_files, format):
+    aname = createArchiveName(
+        proj_info['name'],
+        proj_info['version'],
+        'tar.{}'.format(format)
+    )
+    files_list = getFilesList(proj_info['packages'])
+    files_list.extend(extra_files)
+    tar_command = "tar -caf {} {} --exclude={}".format(aname, " ".join(files_list), exclude)
+    check_call(split(tar_command))
+
+
