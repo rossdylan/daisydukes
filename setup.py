@@ -3,7 +3,7 @@ version = '0.0.1'
 requires = []
 
 
-setup(name='pythong',
+setup(name='daisydukes',
     version=version,
     description="Set up a minimal, yet comfortable structure \
         for a Python project",
