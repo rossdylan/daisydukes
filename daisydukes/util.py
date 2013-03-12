@@ -1,5 +1,7 @@
 import setuptools
 from setuptools import find_packages
+import os
+import sys
 
 
 class SetupTrapper(object):
@@ -21,6 +23,7 @@ def trap_setup():
     of the args, and keyword args given to the setup function in a setup.py
     file.
     """
+    sys.path.append(os.path.abspath(os.curdir))
     trapper = SetupTrapper()
     setuptools.setup = trapper
     __import__("setup",globals(),locals(),[],-1)
