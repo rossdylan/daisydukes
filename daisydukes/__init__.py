@@ -2,6 +2,7 @@ import util
 import sys
 import argparse
 import archive
+import upload
 
 
 def DaisyDukesRunner():
@@ -68,7 +69,31 @@ def Upload():
     Upload a pythong project
     Supports: PyPI, FTP, S3
     """
-    pass
+    parser = argparse.ArgumentParser(description="Upload your pythong project somewhere")
+    parser.add_argument("--pypi",
+                        action='store_true',
+                        help='Upload this project to pypi',)
+    parser.add_argument("--s3",
+                        metavar='bucket', type=str, default="",
+                        help='Upload an archive to an s3 bucket')
+    parser.add_argument("--ftp",
+                        metavar='uri', type=str, default="",
+                        help='Upload an archive to a ftp server')
+    parser.add_argument("--format",
+                        metavar='format', typo=str, default='zip',
+                        help='Choose the format of the archive to upload (only for --s3 and --ftp)')
+    parser.add_argument("--register",
+                        action='store_true',
+                        help='Run the register command before uploading to pypi')
+    args = parser.parse_args(sys.argv[2:])
+    if args.pypi:
+        upload.PyPIUpload(reg=args.register)
+    elif args.s3:
+        upload.S3Upload(args.s3, args.format)
+    elif args.ftp:
+        upload.FTPUpload(args.ftp, args.format)
+    else:
+        parser.print_usage()
 
 
 def Package():
