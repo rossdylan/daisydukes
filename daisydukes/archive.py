@@ -2,7 +2,7 @@ from subprocess import check_call
 from shlex import split
 
 
-exclude_list = ["*.pyc"]
+exclude_list = ["*.pyc", ".ropeproject"]
 exclude = " ".join(exclude_list)
 
 
@@ -37,7 +37,8 @@ def ArchiveTar(proj_info, extra_files, format):
     )
     files_list = getFilesList(proj_info['packages'])
     files_list.extend(extra_files)
-    tar_command = "tar -caf {} {} --exclude={}".format(aname, " ".join(files_list), exclude)
+    tar_excludes = " ".join(map(lambda s: "--exclude={}".format(s), exclude_list))
+    tar_command = "tar -caf {} {} {}".format(aname, " ".join(files_list), tar_excludes)
     check_call(split(tar_command))
 
 
