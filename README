@@ -1,4 +1,4 @@
-Daisy Dukes is a utility to package your pythong (A comfortable project setup)
+Stylish transport for your pythong projects
 
 DaisyDukes can:
     Create archives of your project:
@@ -13,7 +13,7 @@ Commands:
     daisydukes package
     daisydukes upload
 
-DaisyDukes is a part of a set of utilties including:
+DaisyDukes is a part of a set of utilities including:
     pythong     - https://github.com/oddshocks/pythong
     daisydukes  - https://github.com/rossdylan/daisydukes
     nighty      - https://github.com/??/nighty
