@@ -44,9 +44,12 @@ def Archive():
     parser.add_argument('--xz',
                         action='store_true',
                         help='Archive this pythong project as a tar.xz file')
+    parser.add_argument('--extrafiles',
+                        metavar='F', type=str, nargs='+',default=[],
+                        help='A list of extra files to add to the archive')
     args = parser.parse_args(sys.argv[2:])
     if args.zip:
-        archive.ArchiveZip(util.trap_setup()[1])
+        archive.ArchiveZip(util.trap_setup()[1], args.extrafiles)
     elif args.gzip:
         pass
     elif args.bzip:
@@ -55,6 +58,8 @@ def Archive():
         pass
     elif args.xz:
         pass
+    else:
+        archive.ArchiveZip(util.trap_setup()[1], args.extrafiles)
 
 
 def Upload():
