@@ -6,8 +6,11 @@ exclude_list = ["*.pyc", ".ropeproject"]
 exclude = " ".join(exclude_list)
 
 
-def createArchiveName(name, version, ext):
-    return "{}-{}.{}".format(name, version, ext)
+def createArchiveName(name, version, ext, path):
+    if path:
+        return "{}/{}-{}.{}".format(path,name, version, ext)
+    else:
+        return "{}-{}.{}".format(name, version, ext)
 
 
 def getFilesList(packages):
@@ -17,11 +20,12 @@ def getFilesList(packages):
     return files_list
 
 
-def ArchiveZip(proj_info, extra_files):
+def ArchiveZip(proj_info, extra_files, path=None):
     aname = createArchiveName(
         proj_info['name'],
         proj_info['version'],
-        'zip'
+        'zip',
+        path
     )
     files_list = getFilesList(proj_info['packages'])
     files_list.extend(extra_files)
@@ -29,11 +33,12 @@ def ArchiveZip(proj_info, extra_files):
     check_call(split(zip_command))
 
 
-def ArchiveTar(proj_info, extra_files, format):
+def ArchiveTar(proj_info, extra_files, format, path=None):
     aname = createArchiveName(
         proj_info['name'],
         proj_info['version'],
-        'tar.{}'.format(format)
+        'tar.{}'.format(format),
+        path
     )
     files_list = getFilesList(proj_info['packages'])
     files_list.extend(extra_files)
