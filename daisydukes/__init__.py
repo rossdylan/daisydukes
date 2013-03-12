@@ -80,7 +80,7 @@ def Upload():
                         metavar='uri', type=str, default="",
                         help='Upload an archive to a ftp server')
     parser.add_argument("--format",
-                        metavar='format', typo=str, default='zip',
+                        metavar='format', type=str, default='zip',
                         help='Choose the format of the archive to upload (only for --s3 and --ftp)')
     parser.add_argument("--register",
                         action='store_true',

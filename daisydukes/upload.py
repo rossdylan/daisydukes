@@ -1,6 +1,6 @@
 from subprocess import check_call
 from shlex import split
-import ftp
+import ftplib
 
 
 def PyPIUpload(reg=False):
