@@ -1,0 +1,14 @@
+Daisy Dukes is a utility to package your pythong (A comfortable project setup)
+
+DaisyDukes can:
+    Create archives of your project:
+        supports tar.(gz, bz2, lzma, xz)
+    Upload your project someplace:
+        Supports S3, FTP, and PyPI
+    Package your project:
+        Supports RPM and DEB
+
+DaisyDukes is a part of a set of utilties including:
+    pythong     - https://github.com/oddshocks/pythong
+    daisydukes  - https://github.com/rossdylan/daisydukes
+    nighty      - https://github.com/??/nighty
