@@ -8,6 +8,11 @@ DaisyDukes can:
     Package your project:
         Supports RPM and DEB
 
+Commands:
+    daisydukes archive [--zip|gzip|bzip2|lzma|xz] [--extrafiles F...]
+    daisydukes package
+    daisydukes upload
+
 DaisyDukes is a part of a set of utilties including:
     pythong     - https://github.com/oddshocks/pythong
     daisydukes  - https://github.com/rossdylan/daisydukes
