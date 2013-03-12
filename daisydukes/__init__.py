@@ -44,7 +44,7 @@ def Archive():
     parser.add_argument('--xz',
                         action='store_true',
                         help='Archive this pythong project as a tar.xz file')
-    args = parser.parse_args(sys.argv[1:])
+    args = parser.parse_args(sys.argv[2:])
     if args.zip:
         archive.ArchiveZip(util.trap_setup()[1])
     elif args.gzip:
