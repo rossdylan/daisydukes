@@ -7,7 +7,7 @@ import archive
 def DaisyDukesRunner():
     if len(sys.argv) >= 2:
         cmd = sys.argv[1]
-        if cmd == 'archive':
+        if cmd == 'archive' or cmd == 'fold':
             Archive()
         elif cmd == 'upload':
             Upload()
@@ -50,7 +50,7 @@ def Archive():
     args = parser.parse_args(sys.argv[2:])
     proj_info = util.trap_setup()[1]
     if args.zip:
-        archive.ArchiveZip(prof_info, args.extrafiles)
+        archive.ArchiveZip(proj_info, args.extrafiles)
     elif args.gzip:
         archive.ArchiveTar(proj_info, args.extrafiles, 'gz')
     elif args.bzip:
